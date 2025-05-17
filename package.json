@@ -1,0 +1,27 @@
+{
+  "name": "mentiq",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "axios": "^1.9.0",
+    "ethers": "^6.14.0",
+    "lucide-react": "^0.510.0",
+    "next": "15.3.1",
+    "next-google-adsense": "^1.0.13",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "react-select": "^5.10.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
+  }
+}

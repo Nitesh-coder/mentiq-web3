@@ -1,0 +1,12 @@
+[
+    { "value": "ETHEREUM", "label": "Ethereum" },
+    { "value": "SOLANA", "label": "Solona" },
+    { "value": "BNB", "label": "BNB Chain" },
+    { "value": "ARBITRUM", "label": "Arbitrum" },
+    { "value": "OPTIMISM", "label": "Optimism" },
+    { "value": "POLYGON", "label": "Polygon" },
+    { "value": "AVALANCHE", "label": "Avalanche" },
+    { "value": "BASE", "label": "Base" },
+    { "value": "FANTOM", "label": "Fantom" },
+    { "value": "ZKSYNC", "label": "zkSync" }
+]

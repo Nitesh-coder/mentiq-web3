@@ -1,0 +1,57 @@
+
+
+[{
+    "name": "Orbiter Finance",
+    "gas": 4.5,
+    "speed": 4,
+    "liquidity": 27.7,
+    "url": "#",
+    "imgUrl": "#",
+    "supportedChains": ["ETHEREUM", "ARBITRUM", "BNB", "SOLONA", "BASE","LINEA","OPTIMISM","POLYGON","AVALANCHE","FANTOM","GNOSIS","HARMONY","MOONBEAM","MOONRIVER","NEAR","OCEAN","POLYGON","SOLANA","TEZOS","TRON","ZKSYNC"]
+},
+{
+    "name": "Uniswap",
+    "gas": 4.5,
+    "speed": 4,
+    "liquidity": 27.7,
+    "url": "#",
+    "imgUrl": "#",
+    "supportedChains": ["ETHEREUM", "SOLONA"]
+},
+{
+    "name": "SushiSwap",
+    "gas": 7.50,
+    "speed": 5,
+    "liquidity": 350,
+
+"url": "#",
+"imgUrl": "#",    "supportedChains": ["ETHEREUM", "ARBITRUM", "BNB"]
+},
+{
+    "name": "Wormhole",
+    "gas": 4.5,
+    "speed": 4,
+    "liquidity": 27.7,
+    "url": "#",
+    "imgUrl": "#",
+    "supportedChains": ["ETHEREUM", "ARBITRUM", "BNB"]
+},
+{
+    "name": "Stargate",
+    "gas": 4.5,
+    "speed": 4,
+    "liquidity": 27.7,
+    "url": "#",
+    "imgUrl": "#",
+    "supportedChains": ["ETHEREUM", "ARBITRUM", "BNB"]
+},
+{
+    "name": "Across Protocol",
+    "gas": 4.5,
+    "speed": 4,
+    "liquidity": 27.7,
+    "url": "#",
+    "imgUrl": "#",
+    "supportedChains": ["ETHEREUM", "ARBITRUM", "BNB"]
+}
+]

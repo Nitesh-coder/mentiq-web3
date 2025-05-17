@@ -1,0 +1,12 @@
+[
+    { "value": "ETH", "label": "ETH" },
+    { "value": "USDC", "label": "USDC" },
+    { "value": "USDT", "label": "USDT" },
+    { "value": "WBTC", "label": "Wrapped Bitcoin" },
+    { "value": "DAI", "label": "Dai" },
+    { "value": "LDO", "label": "Lido DAO" },
+    { "value": "MKR", "label": "Maker" },
+    { "value": "UNI", "label": "Uniswap" },
+    { "value": "AAVE", "label": "Aave" },
+    { "value": "LINK", "label": "Chainlink" }
+]
