@@ -21,6 +21,8 @@ export default function Connect(){
         setConnected(true)
         setSigner(signer)
         const address = await signer.getAddress();
+        setAddress(address)
+        setIsClicked(false)
         alert(`Connected: ${address}`);
     }
     function handleClick(){
@@ -31,9 +33,12 @@ export default function Connect(){
     function handleEnterAdress(){
         if (addr.length === 42 && addr.startsWith("0x")) {
             setAddress(addr)
+            setConnected(true)
+            setIsClicked(false)
+            setAdr('')
         }else{
             alert("Please enter a valid address")
-        }   
+        }
     }
     return(
         <div>

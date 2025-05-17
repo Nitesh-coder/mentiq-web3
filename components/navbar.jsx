@@ -14,7 +14,7 @@ import Image from "next/image";
 export default function Nav() {
     const pathname = usePathname()
     const navItem = [
-        { label: "Dashboard", path: "/wallet", icon: <MdSpaceDashboard /> },
+        { label: "Portfolio", path: "/wallet", icon: <MdSpaceDashboard /> },
         { label: "Swap", path: "/swap", icon: <MdSwapHoriz /> },
         { label: "Airdrop", path: "/airdrop", icon: <FaDroplet /> },
         { label: "About Us", path: "/about", icon: <IoPerson /> },
