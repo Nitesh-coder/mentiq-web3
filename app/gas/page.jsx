@@ -9,12 +9,18 @@ const ABI = [
     ]
 export default function Gas(){
     const [address, setAdress] = useState('')
+    const [bal, setBalance] = useState(0)
     const [claimed, setClaimed] = useState(false)
     const [claiming, setClaiming] = useState(false)
-    async function handleClick(){
-        const provider = new JsonRpcProvider(process.env.NEXT_PUBLIC_MONAD_TESTNET)
-        const wallet = new ethers.Wallet(process.env.NEXT_PUBLIC_PRIVATE_KEY, provider)
 
+    const provider = new JsonRpcProvider(process.env.NEXT_PUBLIC_MONAD_TESTNET)
+    const wallet = new ethers.Wallet(process.env.NEXT_PUBLIC_PRIVATE_KEY, provider)
+
+    provider.getBalance(wallet.address).then((balance) => {
+        setBalance(ethers.formatEther(balance))
+    })
+
+    async function handleClick(){
         setClaiming(true)
         setClaimed(false)
         try{
@@ -43,6 +49,7 @@ export default function Gas(){
                 </div>
                 
             </div>
+            <div>{bal}</div>
             {claiming && (
                 <div className="flex items-center gap-2 text-blue-600 font-medium animate-pulse">
                     <Loader2 className="w-5 h-5 animate-spin" />

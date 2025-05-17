@@ -24,14 +24,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    
-
-  
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-                <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2855543832746929"
-     crossOrigin="anonymous" />
         <GoogleAdSense publisherId="pub-2855543832746929" />
         <SignerWrapper>
         <Nav />
