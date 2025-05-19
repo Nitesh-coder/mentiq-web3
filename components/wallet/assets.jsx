@@ -100,8 +100,9 @@ export default function Assets(){
     get()
     console.log(allAssets);
     return(
-        <div className="flex flex-col space-y-6 p-4 bg-gray-50 rounded-lg shadow-md md:p-8">
-            {isValidAddress ? (<>
+        <div>
+            {isValidAddress ? (
+            <div className="flex flex-col space-y-6 p-4 bg-gray-50 rounded-lg shadow-md md:p-8">
             <h1 className="text-2xl font-bold text-gray-800">Assets</h1>
             <div className="overflow-x-auto">
                 <div className=" bg-white rounded-lg shadow-md">
@@ -114,8 +115,8 @@ export default function Assets(){
                     ))}
                 </div>
             </div>
-            </>):
-            <div>
+            </div>):
+            <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center">
                 <p className="text-gray-600">Please connect your wallet to view your assets.</p>
             </div>
             }
