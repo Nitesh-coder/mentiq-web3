@@ -55,13 +55,16 @@ export default function Assets(){
         arb: {eth: 0, token: []},
         op: {eth: 0, token: []}
     })
+    const [isValidAddress, setIsValidAddress] = useState(false)
     const [allAssets, setAllAssets] = useState({
         eth: 0,
         token: []
     })
     const {address} = useSigner()
+
     useEffect(()=>{
         if (!address || address === '' || !address.startsWith("0x") || address.length !== 42) return
+        setIsValidAddress(true)
         async function get(){
             try{
                 const [eth, base, arb, op] = await Promise.all([
@@ -76,8 +79,11 @@ export default function Assets(){
                     token: [...eth.token.map((token)=>{return {...token, chain: 'Ethereum'}}),
                         ...base.token.map((token)=>{return {...token, chain: 'Base'}}), 
                         ...arb.token.map((token)=>{return {...token, chain: 'Arbitrum'}}),
-                        ...op.token.map((token)=>{return {...token, chain: 'Optimism'}})]}
+                        ...op.token.map((token)=>{return {...token, chain: 'Optimism'}})]
+                        .filter((token)=>token.tokenBalance > 0.001)
+                        .sort((a,b)=>b.tokenBalance-a.tokenBalance)}
                 )
+                
             }catch(err){
                 console.log(err)
             }
@@ -88,13 +94,14 @@ export default function Assets(){
         return <div>Loading assets...</div>;
     }
     async function get(){
-        const price = await getPrice('bitcoin')
+        const price = await getPrice('Term')
         console.log(price);
     }
-
-    console.log(assets);
+    get()
+    console.log(allAssets);
     return(
         <div className="flex flex-col space-y-6 p-4 bg-gray-50 rounded-lg shadow-md md:p-8">
+            {isValidAddress ? (<>
             <h1 className="text-2xl font-bold text-gray-800">Assets</h1>
             <div className="overflow-x-auto">
                 <div className=" bg-white rounded-lg shadow-md">
@@ -105,9 +112,13 @@ export default function Assets(){
                             <Token assest={token.symbol} balance={Number(token.tokenBalance).toFixed(3)} price={0} value={0} chain={token.chain} />
                         </div>
                     ))}
-
                 </div>
             </div>
+            </>):
+            <div>
+                <p className="text-gray-600">Please connect your wallet to view your assets.</p>
+            </div>
+            }
         </div>
     )
 }

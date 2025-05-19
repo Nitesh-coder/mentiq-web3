@@ -1,47 +1,21 @@
 'use client'
-import { FaCoins } from "react-icons/fa6";
-import { FaEthereum } from "react-icons/fa6";
-import { useEffect, useState } from "react";
-import { getAssets } from "@/utils/getWalletDetails";
-import { useSigner } from "@/context/signerProvider";
+import { AlignJustify, ArrowLeftRight, BriefcaseBusiness, ChartArea, Gem } from "lucide-react";
+import { useState } from "react";
 
-export default function Nav(){
-    const [balance, setBalance] = useState(0);
-    const {address} = useSigner()
-
-    useEffect(() => {
-        if (!address || address === '' || !address.startsWith("0x") || address.length !== 42) return
-        async function getBalance() {
-            try {
-                const assets = await getAssets(process.env.NEXT_PUBLIC_ETH_MAINNET, address);
-                setBalance(Number(assets.eth).toFixed(5));
-            } catch (error) {
-                console.error("Error fetching balance:", error);
-            }
-        }
-        getBalance();
-    }, [address]);
-
-    return (
-        <div className="flex flex-col md:flex-row justify-between items-center px-6 py-4 bg-gray-800 text-white rounded-lg shadow-md space-y-4 md:space-y-0">
-            <div className="text-center md:text-left">
-                <h2 className="text-2xl font-bold">Dashboard</h2>
-                <p className="text-sm text-gray-300">Track your crypto portfolio and activity across chains</p>
+export default function Nav() {
+    const [isOpen, setIsOpen] = useState(true);
+    return(
+        <div className="p-1 flex flex-col space-y-3 transform transition-all duration-300 ease-in-out">
+            <div className="flex space-x-12 items-center">
+                <p className={`${isOpen?'block':'hidden'} text-2xl font-bold opacity-85`}>Dashboard</p>
+                <AlignJustify className=" cursor-pointer" onClick={()=>setIsOpen(!isOpen)} />
             </div>
-            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
-                <div className="flex items-center justify-center space-x-2 w-full md:w-auto bg-gray-700 py-3 px-4 rounded-lg">
-                    <FaCoins className="text-xl text-yellow-400" />
-                    <h1 className="text-lg font-semibold">{balance}</h1>
-                </div>
-                <div className="flex items-center justify-center space-x-2 w-full md:w-auto bg-gray-700 py-3 px-4 rounded-lg">
-                    <FaEthereum className="text-xl text-blue-400" />
-                    <h1 className="text-lg font-semibold">Ethereum</h1>
-                </div>
-                <div className=" hidden md:flex items-center justify-center space-x-2 w-full md:w-auto bg-gray-700 py-3 px-4 rounded-lg overflow-hidden">
-                    <FaEthereum className="text-xl text-blue-400" />
-                    <h1 className="text-lg font-semibold truncate">{address}</h1>
-                </div>
-            </div>
+            <ul className=" flex flex-col space-y-5">
+                <li className=" flex space-x-1"><BriefcaseBusiness /><p className={`${isOpen?'block':'hidden'}`}>Portfolio</p></li>
+                <li className=" flex space-x-1"><Gem /><p className={`${isOpen?'block':'hidden'}`}>NFTs</p></li>
+                <li className=" flex space-x-1"><ArrowLeftRight /><p className={`${isOpen?'block':'hidden'}`}>Transactions</p></li>
+                <li className=" flex space-x-1"><ChartArea /> <p className={`${isOpen?'block':'hidden'}`}>Analysis</p></li>
+            </ul>
         </div>
-    );
+    )
 }
